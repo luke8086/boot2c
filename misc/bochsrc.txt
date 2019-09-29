@@ -1,0 +1,7 @@
+ata0-master: type=disk, path="build/disk.img"
+boot: disk
+magic_break: enabled=1
+clock: sync=realtime
+
+# display_library: wx
+# config_interface: wx
