@@ -122,7 +122,7 @@ sector, and the boot sector of the first active partition.
 
 Since USB booting
 [is not](https://wiki.osdev.org/Problems_Booting_From_USB_Flash)
-a standarized process, it may not work on every PC. I only really tested
+a standardized process, it may not work on every PC. I only really tested
 on mine, and it still behaved in two different ways for a USB stick
 and an SD card.
 In case it doesn't work for you, you can try an
