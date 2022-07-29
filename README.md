@@ -1,8 +1,8 @@
-#### Introduction
+## Introduction
 
-See the corresponding [blog post](https://luke8086.neocities.org/2019-09-29-writing-c-programs-for-i386/)
+See the corresponding [article](ARTICLE.md)
 
-#### Prerequisites
+## Prerequisites
 
 - Clang or GCC (with support for i386 targets)
 - GNU binutils
@@ -15,18 +15,18 @@ homebrew's binutils doesn't include GNU ld. I recommend installing MacPorts
 and their i386-elf-gcc & i386-elf-binutils packages, and updating Makefile
 accordingly*
 
-#### Compiling:
+## Compiling:
 ```
 $ make
 ```
 
-#### Testing in emulators:
+## Testing in emulators:
 ```
 $ make qemu APP=snake
 $ make bochs APP=hexview
 ```
 
-#### Installing on a USB disk / SD card:
+## Installing on a USB disk / SD card:
 
 Be careful to pick the right device, this will destroy your data!
 
@@ -35,7 +35,7 @@ $ make disk APP=hello
 $ sudo dd if=build/disk.img of=/dev/<USB DISK>
 ```
 
-#### Screenshots
+## Screenshots
 
 ![](misc/snake.png)
 
