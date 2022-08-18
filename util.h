@@ -1,5 +1,5 @@
 /*
- * util.h - Misc helpers
+ * util.h - BIOS interface and other basic helpers
  *
  * author: luke8086
  * license: GPL-2
