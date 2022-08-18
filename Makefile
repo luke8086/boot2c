@@ -25,12 +25,15 @@ DISK = $(OBJDIR)/disk.img
 # don't remove intermediate files
 .SECONDARY:
 
-all: $(BINS)
+all: $(OBJDIR) $(BINS)
 
 ensure-app:
 ifndef APP
 	$(error You must set APP, e.g. make qemu APP=snake)
 endif
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
 
 $(OBJDIR)/%.bin: $(OBJDIR)/%.elf
 	$(OBJCOPY) -O binary $< $@
