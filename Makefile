@@ -1,5 +1,5 @@
 AS = as
-CC = clang
+CC = gcc
 LD = ld
 OBJCOPY = objcopy
 
