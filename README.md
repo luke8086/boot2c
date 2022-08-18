@@ -20,8 +20,8 @@ $ make
 
 ## Testing in emulators:
 ```
-$ make qemu APP=snake
-$ make bochs APP=hexview
+$ make qemu
+$ make bochs
 ```
 
 ## Installing on a USB disk / SD card:
