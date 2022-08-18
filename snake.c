@@ -143,6 +143,9 @@ main(void)
 {
     set_fs(TEXT_MEM_SEG);
 
+    put_string("Hello World!\r\n\nPress any key to play a game...");
+    (void)get_keystroke();
+
     for (;;) {
         struct body body;
         enum dir prev_dir = DIR_RIGHT;

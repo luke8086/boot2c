@@ -35,6 +35,4 @@ $ sudo dd if=build/disk.img of=/dev/<USB DISK>
 
 ## Screenshots
 
-![](misc/snake.png)
-
-![](misc/hexview.png)
+![](screenshot.png)
