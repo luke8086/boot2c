@@ -6,7 +6,6 @@
  */
 
 #include "util.h"
-#include "bios.h"
 
 /* Use 2 columns per 1 row, to achieve square blocks */
 #define WIDTH  (TEXT_WIDTH / 2)

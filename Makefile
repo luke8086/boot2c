@@ -16,7 +16,7 @@ LDFLAGS = -Tlinker.ld -nostdlib -m elf_i386
 
 OBJDIR = build
 
-COMMON_OBJS = $(addprefix $(OBJDIR)/, intr.o bios.o util.o)
+COMMON_OBJS = $(addprefix $(OBJDIR)/, intr.o util.o)
 BINS = $(addprefix $(OBJDIR)/,boot.bin snake.bin)
 DISK = $(OBJDIR)/disk.img
 
@@ -26,11 +26,6 @@ DISK = $(OBJDIR)/disk.img
 .SECONDARY:
 
 all: $(OBJDIR) $(BINS)
-
-ensure-app:
-ifndef APP
-	$(error You must set APP, e.g. make qemu APP=snake)
-endif
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
