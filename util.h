@@ -16,9 +16,9 @@
 
 #include <stdint.h>
 
-/*
+/* ------------------------------------------------------------------------- *
  * Misc declarations and basic helper functions
- */
+ * ------------------------------------------------------------------------- */
 
 typedef __SIZE_TYPE__ size_t;
 
@@ -40,9 +40,9 @@ size_t strlen(const char *s);
 uint16_t rand(void);
 
 
-/*
+/* ------------------------------------------------------------------------- *
  * Code for triggering software interrupts, in particular to call BIOS services
- */
+ * ------------------------------------------------------------------------- */
 
 /*
  * Container for values of the CPU registers
@@ -82,9 +82,9 @@ struct regs {
 void intr(int int_no, struct regs *);
 
 
-/*
+/* ------------------------------------------------------------------------- *
  * Video services
- */
+ * ------------------------------------------------------------------------- */
 
 /* Text attributes */
 enum {
@@ -134,9 +134,9 @@ struct attr_char {
 #define CHAR_AT(x, y)   (TEXT_MEM[(y) * TEXT_WIDTH + (x)])
 
 
-/*
+/* ------------------------------------------------------------------------- *
  * Keyboard services
- */
+ * ------------------------------------------------------------------------- */
 
 /* Single keystroke in the keyboard buffer */
 struct keystroke {
@@ -162,9 +162,9 @@ int check_keystroke(void);
 struct keystroke get_keystroke(void);
 
 
-/*
+/* ------------------------------------------------------------------------- *
  * Clock services
- */
+ * ------------------------------------------------------------------------- */
 
 /* Get system time in 18.2Hz ticks since midnight */
 uint32_t get_time(void);
