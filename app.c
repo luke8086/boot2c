@@ -31,8 +31,8 @@ enum dir {
 
 /* Block types correpond to their foreground colors */
 enum block {
-    PT_FLOOR = CL_BLUE,
-    PT_WALL  = CL_LIGHT_GRAY,
+    PT_FLOOR = CL_BLACK,
+    PT_WALL  = CL_LIGHT_CYAN,
     PT_SNAKE = CL_YELLOW,
     PT_FRUIT = CL_LIGHT_MAGENTA
 };
