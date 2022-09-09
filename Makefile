@@ -11,7 +11,7 @@ OBJCOPY = objcopy
 # OBJCOPY = i386-elf-objcopy
 
 ASFLAGS = -march=i386 --32
-CFLAGS = -ffreestanding -m16 -march=i386 -Wall -Wextra -pedantic
+CFLAGS = -ffreestanding -m16 -march=i386 -mpreferred-stack-boundary=2 -Wall -Wextra -pedantic
 LDFLAGS = -Tlinker.ld -nostdlib -m elf_i386
 
 OBJDIR = build
