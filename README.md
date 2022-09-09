@@ -16,6 +16,8 @@ To achieve this, they have several limitations:
 - the available RAM is limited to ~640KB
 - the boot-loader is not guaranteed to work on every PC
 
+<img src="screenshot.png" width="600" />
+
 ## Prerequisites
 
 - GCC with support for i386 targets
