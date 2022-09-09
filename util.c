@@ -32,11 +32,15 @@ memcpy(void *dest, const void *src, size_t n)
     return dest;
 }
 
-void
-put_string(char *s)
+size_t
+strlen(const char *s)
 {
-    while (*s)
-        put_char(*s++);
+    size_t n = 0;
+
+    while (*s++)
+        ++n;
+
+    return n;
 }
 
 uint16_t
@@ -68,15 +72,22 @@ toggle_cursor(int visible)
     intr(0x10, &regs);
 }
 
-void
-move_cursor(int x, int y)
+uint16_t
+get_cursor(void)
 {
-    struct regs regs = {
-        .ah = 0x02,
-        .bh = 0x00,
-        .dh = y,
-        .dl = x,
-    };
+        struct regs regs = { .ah = 0x03, .bh = 0x00 };
+
+        intr(0x10, &regs);
+
+        return regs.dx;
+}
+
+void
+move_cursor(uint16_t pos)
+{
+    struct regs regs = { .ah = 0x02, .bh = 0x00 };
+
+    regs.dx = pos;
 
     intr(0x10, &regs);
 }
@@ -89,6 +100,26 @@ put_char(char ascii)
         .al = ascii,
         .bh = 0x00,
     };
+
+    intr(0x10, &regs);
+}
+
+void
+put_string(char *s, uint8_t attr)
+{
+    uint16_t pos = get_cursor();
+    uint16_t len = strlen(s);
+
+    struct regs regs = {
+            .ah = 0x13,
+            .al = 0x01,
+            .bh = 0x00,
+            .bl = attr,
+    };
+
+    regs.cx = len;
+    regs.dx = pos;
+    regs.bp = (uint16_t)(uint32_t)s;
 
     intr(0x10, &regs);
 }

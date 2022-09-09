@@ -34,9 +34,7 @@ void set_gs(uint16_t);
 
 /* Standard library functions (may be called implicitly by the compiler) */
 void *memcpy(void *, const void *, size_t);
-
-/* Write a null-terminated string at the cursor position */
-void put_string(char *);
+size_t strlen(const char *s);
 
 /* Return a pseudo-random number between 0 - 65534 */
 uint16_t rand(void);
@@ -96,12 +94,17 @@ enum {
 /* Toggle visibility of the cursor */
 void toggle_cursor(int visible);
 
-/* Move text cursor to the given location */
-void move_cursor(int x, int y);
+/* Get cursor position (high byte = row, low byte = column) */
+uint16_t get_cursor(void);
+
+/* Move text cursor to the given position */
+void move_cursor(uint16_t pos);
 
 /* Write a single character at the cursor position */
 void put_char(char);
 
+/* Write a null-terminated string with attribute at the cursor position */
+void put_string(char *, uint8_t);
 
 /*
  * Direct access to the text-mode video memory.

@@ -142,7 +142,9 @@ main(void)
 {
     set_fs(TEXT_MEM_SEG);
 
-    put_string("Hello World!\r\n\nPress any key to play a game...");
+    put_string("\r\nHello World! This is a standalone x86 app written in C\r\n", CL_LIGHT_CYAN);
+    put_string("\r\nPress any key to play a game...\r\n", CL_LIGHT_GREEN);
+
     (void)get_keystroke();
 
     for (;;) {
