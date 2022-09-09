@@ -52,7 +52,7 @@ $ sudo dd if=build/disk.img of=/dev/<USB DISK>
 #### Overall structure
 
 The final app consists of two binaries: a boot loader and the actual
-program. Both are created by compiling the source code with clang/gcc
+program. Both are created by compiling the source code with gcc
 and GNU assembler, linking the program with GNU ld, and converting
 the resulting ELF files to flat binaries using objcopy.
 
@@ -68,7 +68,7 @@ using a custom
 It is [possible](http://www.logix.cz/michal/doc/i386/chp16-00.htm)
 to use 32-bit instructions in the real-address mode, they just need
 to be marked with address-size and operand-size prefixes. The
-`-m16` option for clang/gcc, and `.code16` directive in GNU assembler, do exactly
+`-m16` option for gcc, and `.code16` directive in GNU assembler, do exactly
 that. The resulting code is 32-bit, only marked everywhere with those
 prefixes. It's not compatible with actual 16-bit CPUs.
 
@@ -117,17 +117,10 @@ Modern compilers don't have a concept of far pointers, so we can't
 seamlessly access memory outside of the current code / data segments.
 This is the main factor limiting our binary to 64K.
 
-Fortunately, both
-[gcc](https://gcc.gnu.org/onlinedocs/gcc-6.1.0/gcc/Named-Address-Spaces.html#index-x86-named-address-spaces-3132)
-and [clang](https://clang.llvm.org/docs/LanguageExtensions.html#memory-references-to-specified-segments)
-have support for "address spaces" relative to FS and GS.
-We include functions
-([util.h](https://github.com/luke8086/boot2c/blob/master/util.h),
-[util.c](https://github.com/luke8086/boot2c/blob/master/util.c))
-to set values
-of these registers, for example to access the text-mode video memory
-at `b800:0000`
-(see [bios.h](https://github.com/luke8086/boot2c/blob/master/bios.h))
+Fortunately, gcc has support for ["address spaces"](https://gcc.gnu.org/onlinedocs/gcc-6.1.0/gcc/Named-Address-Spaces.html#index-x86-named-address-spaces-3132)
+relative to FS and GS. We include `set_fs` and `get_fs` functions
+to set values of these registers, for example to access the text-mode video memory
+at `b800:0000` (see [bios.h](https://github.com/luke8086/boot2c/blob/master/bios.h))
 
 #### Standard library
 
