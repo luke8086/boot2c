@@ -13,7 +13,7 @@
     mov    %ax, %ds
     mov    %ax, %es
     mov    %ax, %ss
-    mov    $0xffff, %sp
+    mov    $0xfff0, %sp
     sti
 
     /* Load our program from disk to RAM using INT 13h, AH=02h */
