@@ -44,7 +44,12 @@ uint16_t rand(void);
  * Code for triggering software interrupts, in particular to call BIOS services
  */
 
-/* Container for values of the CPU registers */
+/*
+ * Container for values of the CPU registers
+ *
+ * Note: initializing fields of different structs at once,
+ * e.g. struct regs r = { .ah = 1, .bx = 2 }), doesn't seem to work
+ */
 struct regs {
     union {
         struct {
