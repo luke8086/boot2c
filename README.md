@@ -164,9 +164,9 @@ showing a completely incorrect output. Since the code is compiled to run
 in 16-bit mode, we need to add `-m i8086`:
 
 ```bash
-$ objdump -D -m i8086 build/snake.o
-$ objdump -D -m i8086 build/snake.elf
-$ objdump -D -b binary -m i8086 build/snake.bin
+$ objdump -D -m i8086 build/app.o
+$ objdump -D -m i8086 build/app.elf
+$ objdump -D -b binary -m i8086 build/app.bin
 ```
 
 #### Debugging with Bochs

@@ -17,8 +17,8 @@ LDFLAGS = -Tlinker.ld -nostdlib -m elf_i386
 OBJDIR = build
 
 COMMON_OBJS = $(addprefix $(OBJDIR)/, intr.o util.o)
-BINS = $(addprefix $(OBJDIR)/,boot.bin snake.bin)
-APP = snake
+BINS = $(addprefix $(OBJDIR)/,boot.bin app.bin)
+APP = app
 DISK = $(OBJDIR)/disk.img
 
 .PHONY: clean disk

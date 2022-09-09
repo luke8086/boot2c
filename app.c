@@ -1,5 +1,5 @@
 /*
- * snake.c - Standalone clone of snake for x86
+ * app.c - Sample standalone C app for x86
  *
  * author: luke8086
  * license: GPL-2
